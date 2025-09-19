@@ -1,0 +1,28 @@
+** start of main.py **
+
+def generate_slug(text):
+    texts=text.lower()
+
+    sentence=[]
+    for ch in texts:
+        if ch.isalnum(): #is a number of letter
+            sentence.append(ch)
+        elif ch.isspace(): # is a space
+            sentence.append(ch)
+        # it will skip all the symbol
+
+    allWithS=''.join(sentence) #in join all the words without the symble
+
+    # now delete space and add %20
+    split=allWithS.split() #it will delete all the speace
+    return '%20'.join(split)
+
+print(generate_slug("helloWorld"))           # "helloworld"
+print(generate_slug("hello world!"))         # "hello%20world"
+print(generate_slug(" hello-world "))        # "helloworld"
+print(generate_slug("hello  world"))         # "hello%20world"
+print(generate_slug("  ?H^3-1*1]0! W[0%R#1]D  "))  # "h3110%20w0r1d"
+
+
+** end of main.py **
+
